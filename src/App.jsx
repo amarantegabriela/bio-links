@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { profile, tabs, studentKit, setup, footer } from "./data.js";
+import { profile, tabs, studentKit, setup, generalLinks, footer } from "./data.js";
 import { getIcon } from "./icons.js";
 
 const ext = { target: "_blank", rel: "noopener noreferrer" };
@@ -115,12 +115,32 @@ function SetupCard({ item }) {
   );
 }
 
+// Vitrines gerais (Hero): cards compactos escuros, sem foto
+function GeneralLinkCard({ item }) {
+  const Icon = getIcon(item.icon);
+  return (
+    <a
+      href={item.url}
+      title={item.title}
+      {...ext}
+      className="group flex items-center gap-2.5 rounded-xl bg-espresso px-3 py-2.5 text-cream shadow-sm transition duration-200 hover:scale-[1.02] hover:shadow-md"
+    >
+      <Icon size={18} strokeWidth={1.8} className="shrink-0 text-caramel" />
+      <span className="min-w-0 flex-1 truncate text-sm font-semibold">{item.shortTitle}</span>
+      <ExternalLink size={14} className="shrink-0 text-cream/40 transition group-hover:text-caramel" />
+    </a>
+  );
+}
+
 export default function App() {
   const [active, setActive] = useState(tabs[0].id);
   return (
     <div className="min-h-screen px-4 py-10 sm:py-16">
       <main className="mx-auto w-full max-w-xl">
         <Header />
+        <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {generalLinks.map((i) => <GeneralLinkCard key={i.title} item={i} />)}
+        </div>
         <Tabs active={active} onChange={setActive} />
         <section role="tabpanel" key={active} className="mt-5">
           {active === "kit" ? (

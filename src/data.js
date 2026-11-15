@@ -108,11 +108,29 @@ export const setup = [
     url: "https://www.amazon.com.br/Garmin-Rel%C3%B3gio-Pulseira-Silicone-Marfim/dp/B0FRGDGRXY?crid=2EZ97PCRPBZ86&dib=eyJ2IjoiMSJ9.UgrboC-5KOcrqHL25h-fqVm2A3nWSoJiK-lqrIfO2KTUbL0XgDz_6N2pSWmqikj7NXlYQxodSenbuDfS0cjkJtO14TGoCk9_UE4m6M5yYNPjujXYxeatx5BQeDn8XsHfOX4leigdkfOM4wdU6MUx6GTikx4eQzC-NtRl2fAjxTLua7MKw8eLYUh809J8W0T18zDrdMJWXjYwOczQTvvvfz8obafaY0IJihSPYi4fGxKurM3fTGrc-499q1wLnRAgAzReE0Rpt0ine4wC99FRy5m71BSq_Ok_TouPbh71Vh4.4qW-aM2YXBZj6qQdIG2K9zKpywz-UFNN2IqcrNN04EY&dib_tag=se&keywords=garmin%2Bvenu%2B4s&qid=1794683855&sprefix=garmin%2Bvenu%2B%2Caps%2C209&sr=8-7&ufe=app_do%3Aamzn1.fos.38059ce3-943c-48af-9fc9-22d85542b02c&th=1&ascsubtag=srctok-37a65f72550fc337&btn_type=ss&btn_ref=srctok-37a65f72550fc337&linkCode=ll2&tag=gabiamarante-20&linkId=64388ff6c3fd017e5c2b5d451d377d51&ref_=as_li_ss_tl",
   },
   {
-    title: "⚡ Ofertas de Tech do Dia na Amazon",
-    category: "Promo",
+    title: "Monitor LG ultrawide 29",
+    category: "",
     icon: "badge-percent",
-    image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/G/32/br-events/2026/BlackFriday/LUWU/Headers/VD102_BF26WU_HeaderComecou_Desk.jpg",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_724842-MLA99581911526_122025-F.webp",
     url: "https://www.amazon.com.br/blackfriday?pd_rd_w=MtiXL&content-id=amzn1.sym.e5e829a9-f269-4a06-a2be-b44ea88f7b97&pf_rd_p=e5e829a9-f269-4a06-a2be-b44ea88f7b97&pf_rd_r=D79P754SBD06H61REENM&pd_rd_wg=oMer7&pd_rd_r=4cb28bcc-d91c-4056-acfc-ed16fc12e4aa&ascsubtag=srctok-140c1081e07d0151&btn_type=ss&btn_ref=srctok-140c1081e07d0151&bubble-id=deals-todasofertas&linkCode=ll2&tag=gabiamarante-20&linkId=6b9ca52857b7e5500fef26b669947dec&ref_=as_li_ss_tl",
+  },
+];
+
+// Seção 3 — vitrines gerais (sem foto de produto), exibidas no topo da página
+export const generalLinks = [
+  {
+    title: "Vai comprar algo na Amazon hoje?",
+    shortTitle: "Ofertas na Amazon",
+    description: "Use meu link de apoio (sem custo extra) ou veja as ofertas do dia",
+    icon: "ShoppingBag",
+    url: "https://www.amazon.com.br/blackfriday?pd_rd_w=MtiXL&content-id=amzn1.sym.e5e829a9-f269-4a06-a2be-b44ea88f7b97&pf_rd_p=e5e829a9-f269-4a06-a2be-b44ea88f7b97&pf_rd_r=D79P754SBD06H61REENM&pd_rd_wg=oMer7&pd_rd_r=4cb28bcc-d91c-4056-acfc-ed16fc12e4aa&ascsubtag=srctok-140c1081e07d0151&btn_type=ss&btn_ref=srctok-140c1081e07d0151&bubble-id=deals-todasofertas&linkCode=ll2&tag=gabiamarante-20&linkId=e0e1d4bb985fa83e6c7a2eb7c8e6fe03&ref_=as_li_ss_tl",
+  },
+  {
+    title: "Minha Lista & Achados no Mercado Livre",
+    shortTitle: "Minha Lista no Mercado Livre",
+    description: "Todos os meus produtos recomendados em um só lugar",
+    icon: "Sparkles",
+    url: "https://meli.la/14zoWjF",
   },
 ];
 

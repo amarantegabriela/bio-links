@@ -5,12 +5,16 @@ import {
   Pen,
   Watch,
   Percent,
+  Monitor,
+  ShoppingBag,
+  Sparkles,
 } from "lucide-react";
 
 // Registre aqui novos ícones usados em data.js
 export const icons = {
   Instagram, Music2, Github, Linkedin, Mail, GraduationCap, Coffee, Code2,
-  NotebookPen, Headphones, Tablet, Cog, Keyboard, Lamp, Armchair, Pen, Watch, Percent
+  NotebookPen, Headphones, Tablet, Cog, Keyboard, Lamp, Armchair, Pen, Watch, Percent, Monitor,
+  ShoppingBag, Sparkles
 };
 
 export const getIcon = (name) => icons[name] || LinkIcon;
