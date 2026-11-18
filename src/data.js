@@ -19,39 +19,54 @@ export const profile = {
 };
 
 export const tabs = [
-  { id: "kit", label: "Kit Estudante & Tech", short: "0800", icon: "GraduationCap" },
+  { id: "dev", label: "Dev & Estudos", short: "Dev & Estudos", icon: "Terminal" },
   { id: "setup", label: "Meu Setup & Favoritos", short: "Setup", icon: "Coffee" },
 ];
 
-// Seção 1 — ferramentas grátis / com desconto
-export const studentKit = [
-  {
-    title: "JetBrains Student Pack",
-    description: "IDEs profissionais grátis para estudantes.",
-    tag: "100% Grátis",
-    icon: "Code2",
-    url: "https://www.jetbrains.com/pt-br/academy/student-pack/",
-  },
-    {
-    title: "Gemini AI PRO",
-    description: "Descontos para universitários.",
-    tag: "Agentes acessíveis",
-    icon: "Code2",
-    url: "https://one.google.com/ai-student?plans=1%2C2&utm_source=gemini&utm_medium=google_paid&utm_campaign=slap_dg_student-br&gad_source=2&gad_campaignid=24210642672&gclid=CjwKCAjwqonVBhA4EiwA9wYJ3YANrgrLgQTRcNfFGAn_ow1GKQ-MkQ9suF3yRhWu7uOkORE9iMeKoBoCCDUQAvD_BwE&g1_landing_page=75",
-  },
+// ---- Aba "Dev & Estudos" ----
+// 🎁 Kit Estudante & Recursos Gratuitos: sem foto, usa `icon` + `badge`
+export const devFree = [
   {
     title: "GitHub Student Developer Pack",
-    description: "Ferramentas dev sem custo.",
-    tag: "100% Grátis",
+    description: "Dezenas de ferramentas, domínios, cursos e Copilot gratuitos com e-mail de estudante.",
+    badge: "Grátis p/ Estudantes",
     icon: "Github",
-    url: "https://education.github.com/pack/join",
+    url: "https://education.github.com/pack",
+    cta: "Acessar recurso",
+  },
+  {
+    title: "JetBrains Educational License",
+    description: "Acesso 100% gratuito ao PyCharm Professional, IntelliJ IDEA Ultimate e todas as IDEs da JetBrains.",
+    badge: "Grátis p/ Estudantes",
+    icon: "Code2",
+    url: "https://www.jetbrains.com/community/education/#students",
+    cta: "Acessar recurso",
+  },
+  {
+    title: "Gemini AI PRO",
+    description: "Descontos para universitários.",
+    badge: "Desconto p/ Estudantes",
+    icon: "Sparkles",
+    url: "https://one.google.com/ai-student?plans=1%2C2&utm_source=gemini&utm_medium=google_paid&utm_campaign=slap_dg_student-br&gad_source=2&gad_campaignid=24210642672&gclid=CjwKCAjwqonVBhA4EiwA9wYJ3YANrgrLgQTRcNfFGAn_ow1GKQ-MkQ9suF3yRhWu7uOkORE9iMeKoBoCCDUQAvD_BwE&g1_landing_page=75",
   },
   {
     title: "Notion Plus para Estudantes",
     description: "Plano Plus gratuito com e-mail acadêmico.",
-    tag: "100% Grátis",
+    badge: "Grátis p/ Estudantes",
     icon: "NotebookPen",
     url: "https://www.notion.com/product/notion-for-education",
+  },
+];
+
+// 📚 Livros & Setup para Codar: produtos de afiliada (foto opcional em `image`)
+export const devProducts = [
+  {
+    title: "O Programador Pragmático",
+    description: "Leitura obrigatória: dicas práticas para escrever código melhor e crescer na carreira. Recomendo muito!",
+    badge: "Dica Dev",
+    icon: "BookOpen",
+    image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/91sTrQDm3PL._SL1500_.jpg",
+    url: "https://www.amazon.com.br/dp/8582606877?bestFormat=true&k=o+programador+pragm%C3%A1tico+2+edi%C3%A7%C3%A3o&crid=2FO3J0Y58L1RT&sprefix=o+programa&linkCode=ll2&tag=gabiamarante-20&linkId=0df3964b6f07f57461b2d7a0e91856fe&ref_=as_li_ss_tl",
   },
 ];
 
@@ -101,11 +116,11 @@ export const setup = [
     url: "https://www.mercadolivre.com.br/social/amga9201738?matt_word=amga9201738&matt_tool=47498506&forceInApp=true&ref=BMkcVpmTbUYVuAgrn8vpGUBfAXgoFFS3WKMo5TKRdZRtL%2BedOV1MYk4Px0DVnO1NGyBwQebk0%2FC4R2YLnUOgun%2FPyQnVA7Iw5H76C80gi4acp8LcD4A4tsjMdcAHBL9K79p1aO1LUwmSFsfBtofYXIQXCfNv%2F39FYpZyOimtQFANHIhGjw4DayLBjoHGuzGH%2ByvQCIxV%2FVmCDAcy35Aq38hDirpqNV8kshwjapxkr8EefHcKemaEhyXKZR6v6qyRH90eyw%3D%3D",
   },
   {
-    title: "Garmin Venu 4",
-    category: "SmartWatch",
-    icon: "Watch",
-    image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/61qLetCsMkL._AC_SL1500_.jpg",
-    url: "https://www.amazon.com.br/Garmin-Rel%C3%B3gio-Pulseira-Silicone-Marfim/dp/B0FRGDGRXY?crid=2EZ97PCRPBZ86&dib=eyJ2IjoiMSJ9.UgrboC-5KOcrqHL25h-fqVm2A3nWSoJiK-lqrIfO2KTUbL0XgDz_6N2pSWmqikj7NXlYQxodSenbuDfS0cjkJtO14TGoCk9_UE4m6M5yYNPjujXYxeatx5BQeDn8XsHfOX4leigdkfOM4wdU6MUx6GTikx4eQzC-NtRl2fAjxTLua7MKw8eLYUh809J8W0T18zDrdMJWXjYwOczQTvvvfz8obafaY0IJihSPYi4fGxKurM3fTGrc-499q1wLnRAgAzReE0Rpt0ine4wC99FRy5m71BSq_Ok_TouPbh71Vh4.4qW-aM2YXBZj6qQdIG2K9zKpywz-UFNN2IqcrNN04EY&dib_tag=se&keywords=garmin%2Bvenu%2B4s&qid=1794683855&sprefix=garmin%2Bvenu%2B%2Caps%2C209&sr=8-7&ufe=app_do%3Aamzn1.fos.38059ce3-943c-48af-9fc9-22d85542b02c&th=1&ascsubtag=srctok-37a65f72550fc337&btn_type=ss&btn_ref=srctok-37a65f72550fc337&linkCode=ll2&tag=gabiamarante-20&linkId=64388ff6c3fd017e5c2b5d451d377d51&ref_=as_li_ss_tl",
+    title: "Suporte articulado para monitor",
+    category: "TV",
+    icon: "TV",
+    image: "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/51QIvg3FDEL._AC_SL1500_.jpg",
+    url: "https://www.amazon.com.br/dp/B09WJD17ZS?th=1&linkCode=ll2&tag=gabiamarante-20&linkId=df0e7b24d8cce30bf8d55f8b53a7d128&ref_=as_li_ss_tl",
   },
   {
     title: "Monitor LG ultrawide 29",

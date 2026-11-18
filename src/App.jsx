@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { profile, tabs, studentKit, setup, generalLinks, footer } from "./data.js";
+import { ExternalLink } from "lucide-react";
+import { profile, tabs, setup, devFree, devProducts, generalLinks, footer } from "./data.js";
 import { getIcon } from "./icons.js";
 
 const ext = { target: "_blank", rel: "noopener noreferrer" };
@@ -58,7 +58,7 @@ function Tabs({ active, onChange }) {
           >
             <Icon size={16} className={on ? "text-caramel" : ""} />
             <span className="hidden sm:inline">{t.label}</span>
-            <span className="sm:hidden">{t.id === "kit" ? "Kit Estudante" : "Meu Setup"}</span>
+            <span className="sm:hidden">{t.short}</span>
           </button>
         );
       })}
@@ -66,27 +66,30 @@ function Tabs({ active, onChange }) {
   );
 }
 
-function KitCard({ item }) {
+// Recurso gratuito: ícone + badge + botão "Acessar recurso", sem foto
+function FreeResourceCard({ item }) {
   const Icon = getIcon(item.icon);
   return (
     <a
       href={item.url}
       {...ext}
-      className="group flex items-center gap-3 rounded-2xl border border-line bg-white p-3.5 shadow-sm transition duration-200 hover:scale-[1.02] hover:shadow-md"
+      className="group flex flex-col gap-3 rounded-2xl border border-line bg-white p-4 shadow-sm transition duration-200 hover:scale-[1.02] hover:shadow-md"
     >
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-caramel/15 text-caramel">
-        <Icon size={22} strokeWidth={1.8} />
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <h3 className="truncate text-sm font-semibold">{item.title}</h3>
-          <span className="shrink-0 rounded-full bg-caramel px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
-            {item.tag}
-          </span>
+      <div className="flex items-start gap-3">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-caramel/15 text-caramel">
+          <Icon size={22} strokeWidth={1.8} />
         </div>
-        <p className="mt-0.5 truncate text-xs text-espresso/60">{item.description}</p>
+        <div className="min-w-0 flex-1">
+          <span className="inline-block rounded-full bg-caramel px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+            {item.badge}
+          </span>
+          <h3 className="mt-1 text-sm font-semibold leading-snug">{item.title}</h3>
+          <p className="mt-0.5 text-xs leading-relaxed text-espresso/60">{item.description}</p>
+        </div>
       </div>
-      <ArrowUpRight size={18} className="shrink-0 text-espresso/30 transition group-hover:text-caramel" />
+      <span className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-espresso px-3 py-2 text-xs font-medium text-cream transition group-hover:bg-caramel">
+        Acessar recurso ↗
+      </span>
     </a>
   );
 }
@@ -115,6 +118,40 @@ function SetupCard({ item }) {
   );
 }
 
+// Produto/livro de afiliada: foto (ou ícone como placeholder) + botão "Ver produto"
+function ProductCard({ item }) {
+  const Icon = getIcon(item.icon);
+  return (
+    <a
+      href={item.url}
+      {...ext}
+      className="group relative flex flex-col rounded-2xl border border-line bg-white p-3 shadow-sm transition duration-200 hover:scale-[1.02] hover:shadow-md"
+    >
+      {item.badge && (
+        <span className="absolute right-5 top-5 z-10 rounded-full bg-caramel px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white shadow-sm">
+          {item.badge}
+        </span>
+      )}
+      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl bg-cream text-caramel">
+        {item.image ? (
+          <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+        ) : (
+          <Icon size={36} strokeWidth={1.5} />
+        )}
+      </div>
+      <h3 className="mt-3 text-sm font-semibold leading-snug">{item.title}</h3>
+      <p className="mt-1 flex-1 text-xs leading-relaxed text-espresso/60">{item.description}</p>
+      <span className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-lg bg-espresso px-3 py-2 text-xs font-medium text-cream transition group-hover:bg-caramel">
+        Ver produto ↗
+      </span>
+    </a>
+  );
+}
+
+function SectionTitle({ children }) {
+  return <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-espresso/50">{children}</h2>;
+}
+
 // Vitrines gerais (Hero): cards compactos escuros, sem foto
 function GeneralLinkCard({ item }) {
   const Icon = getIcon(item.icon);
@@ -138,14 +175,25 @@ export default function App() {
     <div className="min-h-screen px-4 py-10 sm:py-16">
       <main className="mx-auto w-full max-w-xl">
         <Header />
-        <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <div className="mt-6 grid grid-cols-2 gap-2">
           {generalLinks.map((i) => <GeneralLinkCard key={i.title} item={i} />)}
         </div>
         <Tabs active={active} onChange={setActive} />
         <section role="tabpanel" key={active} className="mt-5">
-          {active === "kit" ? (
-            <div className="flex flex-col gap-3">
-              {studentKit.map((i) => <KitCard key={i.title} item={i} />)}
+          {active === "dev" ? (
+            <div className="flex flex-col gap-8">
+              <div>
+                <SectionTitle>🎁 Kit Estudante & Recursos Gratuitos</SectionTitle>
+                <div className="flex flex-col gap-3">
+                  {devFree.map((i) => <FreeResourceCard key={i.title} item={i} />)}
+                </div>
+              </div>
+              <div>
+                <SectionTitle>📚 Livros & Setup para Codar</SectionTitle>
+                <div className="grid grid-cols-2 gap-3">
+                  {devProducts.map((i) => <ProductCard key={i.title} item={i} />)}
+                </div>
+              </div>
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-3">
